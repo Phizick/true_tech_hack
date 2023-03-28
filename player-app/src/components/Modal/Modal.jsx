@@ -26,7 +26,7 @@ export const Modal = ({ active, closeModal }) => {
       video.style.filter = "contrast(140%) sepia(60%) saturate(160%)";
     }
     if (state?.mask === "normal") {
-      video.style.filter = "none";
+      video.style.filter = ` grayscale(${state?.ottenok}%) brightness(${state?.light}%) contrast(${state?.contrast}%)`;
     }
     if (state?.mask === "monochrom") {
       video.style.filter = "grayscale(140%)  brightness(110%) contrast(120%)";
@@ -89,7 +89,6 @@ export const Modal = ({ active, closeModal }) => {
   };
 
   const normal = () => {
-    video.style.filter = "none";
     video.style.filter = `brightness(${inputRef.current.value}%)`;
   };
 
