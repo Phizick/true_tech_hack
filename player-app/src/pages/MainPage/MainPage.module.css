@@ -1,0 +1,40 @@
+.video {
+}
+
+.btn {
+    order: 4;
+    border: 0;
+    width: 30px;
+    height: 30px;
+    background: transparent url('../../icons/cog.svg') no-repeat center;
+    cursor: pointer;
+    padding: 0;
+    transition: .2s;
+}
+
+.btn:hover {
+    animation: rotated .2s linear;
+    opacity: .7;
+}
+
+@keyframes rotated {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(90deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    75% {
+        transform: rotate(270deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { testSlice } from "../slices/test";
+import { maskSlice } from "../slices/maskSlice";
 
 export const store = configureStore({
   reducer: {
-    test: testSlice.reducer,
+    masks: maskSlice.reducer,
   },
 });
