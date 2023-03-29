@@ -125,65 +125,23 @@ export const Modal = ({ active, closeModal }) => {
   };
 
   const monochrom = () => {
-    if (state?.notScene === "on") {
-      times.map((item) => {
-        if (Math.floor(video.currentTime) === item) {
-          video.style.filter = "grayscale(140%) contrast(120%) blur(15px)";
-        }
-      });
-    } else {
       video.style.filter = "grayscale(140%) contrast(120%)";
-      inputRef.current.style = 'opacity(0.2)'
-    }
   };
 
   const proto = () => {
-    if (state?.notScene === "on") {
-      times.map((item) => {
-        if (Math.floor(video.currentTime) === item) {
-          video.style.filter = "hue-rotate(359deg) saturate(150%) blur(15px)";
-        }
-      });
-    } else {
       video.style.filter = "hue-rotate(359deg) saturate(150%)";
-    }
   };
 
   const tree = () => {
-    if (state?.notScene === "on") {
-      times.map((item) => {
-        if (Math.floor(video.currentTime) === item) {
-          video.style.filter =
-            "contrast(140%) sepia(60%) saturate(160%) blur(15px)";
-        }
-      });
-    } else {
       video.style.filter = "contrast(140%) sepia(60%) saturate(160%)";
-    }
   };
 
   const deTree = () => {
-    if (state?.notScene === "on") {
-      times.map((item) => {
-        if (Math.floor(video.currentTime) === item) {
-          video.style.filter = "hue-rotate(359deg) contrast(150%) blur(15px)";
-        }
-      });
-    } else {
       video.style.filter = "hue-rotate(359deg) contrast(150%)";
-    }
   };
 
   const normal = () => {
-    if (state?.notScene === "on") {
-      times.map((item) => {
-        if (Math.floor(video.currentTime) === item) {
-          video.style.filter = `grayscale(${otRef.current.value}%) brightness(${inputRef.current.value}%) contrast(${nasRef.current.value}%)blur(15px)`;
-        }
-      });
-    } else {
       video.style.filter = `grayscale(${otRef.current.value}%) brightness(${inputRef.current.value}%) contrast(${nasRef.current.value}%)`;
-    }
   };
 
   const saveSettings = (e) => {
