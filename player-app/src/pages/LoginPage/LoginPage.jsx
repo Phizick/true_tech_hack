@@ -1,3 +1,11 @@
+/**
+ * @component
+ * Компонент-страница авторизации
+ * При нажатии на кнопку "Авторизация", в localStorage записывается введный логин и пароль, если верный логин и пароль, то редиректит на главную страницу
+ * @returns
+ * возвращает разметку страницы, в случае успешного входа отпрявляется роут на /
+ */
+
 import styleLoginPage from './LoginPage.module.css';
 import {Input} from "../../Input/Input";
 import {Button} from "../../components/Button/Button";

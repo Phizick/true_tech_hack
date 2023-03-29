@@ -1,3 +1,12 @@
+/**
+ * @component
+ * Modal - модальное окно при клике на настройки
+ * Здесь происходит магия
+ * Наложение масок на фильм
+ * @returns
+ * возвращает страницы модальное окно
+ */
+
 import styleModal from "./Modal.module.css";
 import cn from "classnames";
 import { useEffect, useRef, useState } from "react";

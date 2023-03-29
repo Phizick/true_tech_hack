@@ -1,3 +1,10 @@
+/**
+ * @component
+ * Главная страница приложения
+ * @returns
+ * возвращает разметку страницы, конкретно Кастомный плеер с модальным окном
+ */
+
 import stylesMainPage from "./MainPage.module.css";
 import { Player, ControlBar,BigPlayButton } from "video-react";
 import { Modal } from "../../components/Modal/Modal";
@@ -20,8 +27,8 @@ export const MainPage = () => {
         <Player poster="/assets/poster.png">
           <BigPlayButton position="center" />
           <Modal closeModal={closeModal} active={activeModal} />
-          <source src="http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4" />
-          <source src="http://mirrorblender.top-ix.org/movies/sintel-1024-surround.mp4" />
+          <source src="http://91.185.84.78:8080/video" />
+          <source src="http://91.185.84.78:8080/video" />
           <ControlBar className={stylesMainPage.bar}>
             <button onClick={openModal} className={stylesMainPage.btn}></button>
           </ControlBar>
