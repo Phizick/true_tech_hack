@@ -10,6 +10,22 @@
   font-family: Arial, sans-serif;
   padding: 56px 56px 0 56px;
   overflow-y: scroll;
+  scrollbar-color: rgba(255, 255, 255, 0.1) rgba(255, 255, 255, 0.3);
+}
+
+.modal::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+
+.modal::-webkit-scrollbar {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.modal::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border: 6px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
 }
 
 .title {
@@ -185,7 +201,7 @@
   border: 6px solid #ffffff;
   cursor: pointer;
   border-radius: 6px;
-  box-shadow: 0 0 0 5px #40494f;
+  box-shadow: 0 0 0 5px rgba(0,0,0,0.5);
 }
 
 .range::-moz-range-thumb {
