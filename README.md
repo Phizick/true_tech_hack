@@ -15,5 +15,5 @@
 #### login: `test`
 #### password: `test`
 
-Для ознакомления с полной документацией, [воспользуйтесь ссылкой](https://disk.yandex.ru/i/VrbiGEOv5zDgYw)
+Для ознакомления с полной документацией, [воспользуйтесь ссылкой](https://disk.yandex.ru/i/iIyNUCXpJzuIxA)
 
