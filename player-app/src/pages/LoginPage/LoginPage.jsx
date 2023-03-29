@@ -22,7 +22,7 @@ export const LoginPage = () => {
         if(login === 'test' && password === 'test') {
             window.localStorage.setItem('login', login)
             window.localStorage.setItem('password',password)
-            history.replace({pathname: '/'})
+            history.replace({pathname: '/personal'})
         }
     }
     if(logU && passU) {
