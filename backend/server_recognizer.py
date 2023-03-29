@@ -109,5 +109,5 @@ def get_processing_status():
 if __name__ == '__main__':
     from waitress import serve
 
-    print('Starting on port 8082')
-    serve(app, host="0.0.0.0", port=8082)
+    print('Starting on port 8081')
+    serve(app, host="0.0.0.0", port=8081)
