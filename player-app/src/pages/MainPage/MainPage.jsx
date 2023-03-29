@@ -1,3 +1,10 @@
+/**
+ * @component
+ * Главная страница приложения
+ * @returns
+ * возвращает разметку страницы, конкретно Кастомный плеер с модальным окном
+ */
+
 import stylesMainPage from "./MainPage.module.css";
 import { Player, ControlBar,BigPlayButton } from "video-react";
 import { Modal } from "../../components/Modal/Modal";

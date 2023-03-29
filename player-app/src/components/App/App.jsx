@@ -1,7 +1,13 @@
+/**
+ * @component
+ * Главный компонент приложения
+ * @returns
+ * возвращает страницы проекта по роутингу
+ */
+
 import { Route, Switch } from "react-router-dom";
 import { ErrorPage } from "../../pages/ErrorPage/ErrorPage";
 import { MainPage } from "../../pages/MainPage/MainPage";
-import stylesApp from "./App.module.css";
 import {ProtectedRoute} from "../ProtectedRoute/ProtectedRoute";
 import {LoginPage} from "../../pages/LoginPage/LoginPage";
 export const App = () => {
