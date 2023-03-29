@@ -6,7 +6,7 @@ import styleLoginPage from "../LoginPage/LoginPage.module.css";
 export const PersonalPage = () => {
   return (
     <div className={stylePersonalPage.page}>
-      <div className={stylePersonalPage.contaner}>
+      {/* <div className={stylePersonalPage.contaner}>
         <h2 className={stylePersonalPage.title}>мои фильмы</h2>
         <div className={stylePersonalPage.list}>
           <Link className={styleLoginPage.link} to="/">
@@ -25,7 +25,7 @@ export const PersonalPage = () => {
             </div>
           </Link>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

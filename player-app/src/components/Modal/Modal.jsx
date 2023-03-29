@@ -103,7 +103,15 @@ export const Modal = ({ active, closeModal }) => {
       "%, #40494F " +
       inputRef.current.value +
       "%)";
-    video.style.filter = ` grayscale(${otRef.current.value}%) brightness(${inputRef.current.value}%) contrast(${nasRef.current.value}%)`;
+    if (state?.notScene === "on") {
+      times.map((item) => {
+        if (Math.floor(video.currentTime) === item) {
+          video.style.filter = ` grayscale(${otRef.current.value}%) brightness(${inputRef.current.value}%) contrast(${nasRef.current.value}%) blur(15px)`;
+        }
+      });
+    } else {
+      video.style.filter = ` grayscale(${otRef.current.value}%) brightness(${inputRef.current.value}%) contrast(${nasRef.current.value}%)`;
+    }
   };
   const nasChange = () => {
     nasRef.current.style.background =
@@ -112,7 +120,15 @@ export const Modal = ({ active, closeModal }) => {
       "%, #40494F " +
       nasRef.current.value +
       "%)";
-    video.style.filter = ` grayscale(${otRef.current.value}%) brightness(${inputRef.current.value}%) contrast(${nasRef.current.value}%)`;
+    if (state?.notScene === "on") {
+      times.map((item) => {
+        if (Math.floor(video.currentTime) === item) {
+          video.style.filter = ` grayscale(${otRef.current.value}%) brightness(${inputRef.current.value}%) contrast(${nasRef.current.value}%) blur(15px)`;
+        }
+      });
+    } else {
+      video.style.filter = ` grayscale(${otRef.current.value}%) brightness(${inputRef.current.value}%) contrast(${nasRef.current.value}%)`;
+    }
   };
   const otChange = () => {
     otRef.current.style.background =
@@ -121,27 +137,77 @@ export const Modal = ({ active, closeModal }) => {
       "%, #40494F " +
       otRef.current.value +
       "%)";
-    video.style.filter = ` grayscale(${otRef.current.value}%) brightness(${inputRef.current.value}%) contrast(${nasRef.current.value}%)`;
+    if (state?.notScene === "on") {
+      times.map((item) => {
+        if (Math.floor(video.currentTime) === item) {
+          video.style.filter = ` grayscale(${otRef.current.value}%) brightness(${inputRef.current.value}%) contrast(${nasRef.current.value}%) blur(15px)`;
+        }
+      });
+    } else {
+      video.style.filter = ` grayscale(${otRef.current.value}%) brightness(${inputRef.current.value}%) contrast(${nasRef.current.value}%)`;
+    }
   };
 
   const monochrom = () => {
     video.style.filter = "grayscale(140%) contrast(120%)";
+    if (state?.notScene === "on") {
+      times.map((item) => {
+        if (Math.floor(video.currentTime) === item) {
+          video.style.filter = "grayscale(140%) contrast(120%) blur(15px)";
+        }
+      });
+    } else {
+      video.style.filter = "grayscale(140%) contrast(120%)";
+    }
   };
 
   const proto = () => {
-    video.style.filter = "hue-rotate(359deg) saturate(150%)";
+    if (state?.notScene === "on") {
+      times.map((item) => {
+        if (Math.floor(video.currentTime) === item) {
+          video.style.filter = "hue-rotate(359deg) saturate(150%) blur(15px)";
+        }
+      });
+    } else {
+      video.style.filter = "hue-rotate(359deg) saturate(150%)";
+    }
   };
 
   const tree = () => {
-    video.style.filter = "contrast(140%) sepia(60%) saturate(160%)";
+    if (state?.notScene === "on") {
+      times.map((item) => {
+        if (Math.floor(video.currentTime) === item) {
+          video.style.filter =
+            "contrast(140%) sepia(60%) saturate(160%) blur(15px)";
+        }
+      });
+    } else {
+      video.style.filter = "contrast(140%) sepia(60%) saturate(160%)";
+    }
   };
 
   const deTree = () => {
-    video.style.filter = "hue-rotate(359deg) contrast(150%)";
+    if (state?.notScene === "on") {
+      times.map((item) => {
+        if (Math.floor(video.currentTime) === item) {
+          video.style.filter = "hue-rotate(359deg) contrast(150%) blur(15px)";
+        }
+      });
+    } else {
+      video.style.filter = "hue-rotate(359deg) contrast(150%)";
+    }
   };
 
   const normal = () => {
-    video.style.filter = `brightness(${inputRef.current.value}%)`;
+    if (state?.notScene === "on") {
+      times.map((item) => {
+        if (Math.floor(video.currentTime) === item) {
+          video.style.filter = `brightness(${inputRef.current.value}%) blur(15px)`;
+        }
+      });
+    } else {
+      video.style.filter = `brightness(${inputRef.current.value}%)`;
+    }
   };
 
   const saveSettings = (e) => {
