@@ -24,6 +24,8 @@ export const timeCodeSlice = createSlice({
       const arr = [...action.payload];
       const arr2 = arr.flat(Infinity);
       state.times = arr2.map((item) => Math.floor(item / 1000));
+      state.push(29,30,31,32)
+      state.times.filter(Number)
     },
     [getTimesCode.enjected]: (state, action) => {
       state.error = `${action.payload}`;
