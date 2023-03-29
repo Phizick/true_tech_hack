@@ -1,0 +1,40 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    padding: 25px 0 55px 0;
+    height: 64px;
+}
+
+.logo {
+    width: 85px;
+    height: 32px;
+    align-self: center;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    align-items: center;
+}
+
+.text {
+    list-style-type: none;
+    color: rgba(179, 192, 204, 1);
+
+}
+
+.input {
+    margin-left: 42px;
+    padding-left: 10px;
+    height: 40px;
+    width: 235px;
+    background-color: rgba(21, 39, 55, 1);
+    border-radius: 8px;
+    align-self: center;
+    color: rgba(179, 192, 204, 1);
+    border: none;
+
+;
+}
