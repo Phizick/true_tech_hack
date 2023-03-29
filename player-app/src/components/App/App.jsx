@@ -4,6 +4,7 @@ import { MainPage } from "../../pages/MainPage/MainPage";
 import stylesApp from "./App.module.css";
 import {ProtectedRoute} from "../ProtectedRoute/ProtectedRoute";
 import {LoginPage} from "../../pages/LoginPage/LoginPage";
+import {PersonalPage} from "../../pages/Personal/PersonalPage";
 export const App = () => {
   return (
     <div className="App">
@@ -13,6 +14,9 @@ export const App = () => {
         </ProtectedRoute>
         <Route path="/login" exact={true}>
           <LoginPage/>
+        </Route>
+        <Route path="/personal" exact={true}>
+          <PersonalPage/>
         </Route>
         <Route path="*" exact={true}>
           <ErrorPage />
