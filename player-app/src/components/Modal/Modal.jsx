@@ -7,7 +7,7 @@
  * Получение таймкодов для сравнение с текущим временем
  * Блюр экрана в случае неприемлемой сцены
  * @returns
- * возвращает страницы модальное окно
+ * возвращает модальное окно
  */
 
 import styleModal from "./Modal.module.css";
@@ -103,7 +103,7 @@ export const Modal = ({ active, closeModal }) => {
       "%, #40494F " +
       inputRef.current.value +
       "%)";
-          video.style.filter = `grayscale(${otRef.current.value}%) brightness(${inputRef.current.value}%) contrast(${nasRef.current.value}%)`;
+    video.style.filter = `grayscale(${otRef.current.value}%) brightness(${inputRef.current.value}%) contrast(${nasRef.current.value}%)`;
   };
   const nasChange = () => {
     nasRef.current.style.background =
@@ -112,7 +112,7 @@ export const Modal = ({ active, closeModal }) => {
       "%, #40494F " +
       nasRef.current.value +
       "%)";
-      video.style.filter = ` grayscale(${otRef.current.value}%) brightness(${inputRef.current.value}%) contrast(${nasRef.current.value}%)`;
+    video.style.filter = ` grayscale(${otRef.current.value}%) brightness(${inputRef.current.value}%) contrast(${nasRef.current.value}%)`;
   };
   const otChange = () => {
     otRef.current.style.background =
@@ -121,27 +121,27 @@ export const Modal = ({ active, closeModal }) => {
       "%, #40494F " +
       otRef.current.value +
       "%)";
-      video.style.filter = ` grayscale(${otRef.current.value}%) brightness(${inputRef.current.value}%) contrast(${nasRef.current.value}%)`;
+    video.style.filter = ` grayscale(${otRef.current.value}%) brightness(${inputRef.current.value}%) contrast(${nasRef.current.value}%)`;
   };
 
   const monochrom = () => {
-      video.style.filter = "grayscale(140%) contrast(120%)";
+    video.style.filter = "grayscale(140%) contrast(120%)";
   };
 
   const proto = () => {
-      video.style.filter = "hue-rotate(359deg) saturate(150%)";
+    video.style.filter = "hue-rotate(359deg) saturate(150%)";
   };
 
   const tree = () => {
-      video.style.filter = "contrast(140%) sepia(60%) saturate(160%)";
+    video.style.filter = "contrast(140%) sepia(60%) saturate(160%)";
   };
 
   const deTree = () => {
-      video.style.filter = "hue-rotate(359deg) contrast(150%)";
+    video.style.filter = "hue-rotate(359deg) contrast(150%)";
   };
 
   const normal = () => {
-      video.style.filter = `grayscale(${otRef.current.value}%) brightness(${inputRef.current.value}%) contrast(${nasRef.current.value}%)`;
+    video.style.filter = `grayscale(${otRef.current.value}%) brightness(${inputRef.current.value}%) contrast(${nasRef.current.value}%)`;
   };
 
   const saveSettings = (e) => {
