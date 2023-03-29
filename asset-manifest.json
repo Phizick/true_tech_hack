@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/true_tech_hack/static/css/main.cd44af99.css",
-    "main.js": "/true_tech_hack/static/js/main.81824f3f.js",
-    "static/js/787.4e2f6ee5.chunk.js": "/true_tech_hack/static/js/787.4e2f6ee5.chunk.js",
-    "static/media/image 1.png": "/true_tech_hack/static/media/image 1.326aa39623ab63966d0a.png",
-    "static/media/img2.jpg": "/true_tech_hack/static/media/img2.871cb305428eec6930e5.jpg",
-    "static/media/img3.jpg": "/true_tech_hack/static/media/img3.b0aabe1d0cd6372b6aef.jpg",
-    "static/media/cog.svg": "/true_tech_hack/static/media/cog.f140bdf7ab4159c1dfb6.svg",
-    "index.html": "/true_tech_hack/index.html",
-    "static/media/check.svg": "/true_tech_hack/static/media/check.cdaf3f3323f7d2ad55d0.svg",
-    "main.cd44af99.css.map": "/true_tech_hack/static/css/main.cd44af99.css.map",
-    "main.81824f3f.js.map": "/true_tech_hack/static/js/main.81824f3f.js.map",
-    "787.4e2f6ee5.chunk.js.map": "/true_tech_hack/static/js/787.4e2f6ee5.chunk.js.map"
+    "main.css": "/login/static/css/main.ca59d424.css",
+    "main.js": "/login/static/js/main.ef3fd026.js",
+    "static/js/787.4e2f6ee5.chunk.js": "/login/static/js/787.4e2f6ee5.chunk.js",
+    "static/media/image 1.png": "/login/static/media/image 1.326aa39623ab63966d0a.png",
+    "static/media/img2.jpg": "/login/static/media/img2.871cb305428eec6930e5.jpg",
+    "static/media/img3.jpg": "/login/static/media/img3.b0aabe1d0cd6372b6aef.jpg",
+    "static/media/cog.svg": "/login/static/media/cog.f140bdf7ab4159c1dfb6.svg",
+    "index.html": "/login/index.html",
+    "static/media/check.svg": "/login/static/media/check.cdaf3f3323f7d2ad55d0.svg",
+    "main.ca59d424.css.map": "/login/static/css/main.ca59d424.css.map",
+    "main.ef3fd026.js.map": "/login/static/js/main.ef3fd026.js.map",
+    "787.4e2f6ee5.chunk.js.map": "/login/static/js/787.4e2f6ee5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cd44af99.css",
-    "static/js/main.81824f3f.js"
+    "static/css/main.ca59d424.css",
+    "static/js/main.ef3fd026.js"
   ]
 }
