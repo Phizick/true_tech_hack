@@ -1,0 +1,25 @@
+.btn {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 24px 22px;
+    gap: 8px;
+    background: #152737;
+    border: 1px solid #27425A;
+    border-radius: 8px;
+    color: #fff;
+    font-family: 'Helvetica';
+    cursor: pointer;
+    transition: .2s;
+}
+
+.btn:hover {
+    background: #27425A;
+}
+
+.btn:active {
+    background: #152737;
+    border: 1px solid #152737;
+}
