@@ -23,6 +23,7 @@ export const Modal = ({ active, closeModal }) => {
   const [video, setVideo] = useState("");
   const state = useSelector((state) => state.masks);
   const maskElement = document.querySelector("[name=radio-group]:checked");
+  console.dir(document.querySelector(".video-react-video"))
   useEffect(() => {
     const video = document.querySelector(".video-react-video");
     setVideo(video);
@@ -31,6 +32,7 @@ export const Modal = ({ active, closeModal }) => {
     dispatch(setOttenok(window.localStorage.getItem("ottenok")));
     dispatch(setMask(window.localStorage.getItem("mask")));
     dispatch(setNotScene(window.localStorage.getItem("not-scene")));
+    console.dir(video)
     if (state?.mask === "tree") {
       video.style.filter = "contrast(140%) sepia(60%) saturate(160%)";
     }
@@ -46,12 +48,14 @@ export const Modal = ({ active, closeModal }) => {
     if (state?.mask === "detree") {
       video.style.filter = "hue-rotate(359deg) contrast(150%) brightness(110%)";
     }
+
   }, [state, video]);
 
   const dispatch = useDispatch();
   const inputRef = useRef(null);
   const nasRef = useRef(null);
   const otRef = useRef(null);
+
 
   const lightChange = () => {
     inputRef.current.style.background =
