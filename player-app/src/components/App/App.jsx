@@ -2,12 +2,17 @@ import { Route, Switch } from "react-router-dom";
 import { ErrorPage } from "../../pages/ErrorPage/ErrorPage";
 import { MainPage } from "../../pages/MainPage/MainPage";
 import stylesApp from "./App.module.css";
+import {ProtectedRoute} from "../ProtectedRoute/ProtectedRoute";
+import {LoginPage} from "../../pages/LoginPage/LoginPage";
 export const App = () => {
   return (
     <div className="App">
       <Switch>
-        <Route path="/" exact={true}>
+        <ProtectedRoute path="/" exact={true}>
           <MainPage />
+        </ProtectedRoute>
+        <Route path="/login" exact={true}>
+          <LoginPage/>
         </Route>
         <Route path="*" exact={true}>
           <ErrorPage />

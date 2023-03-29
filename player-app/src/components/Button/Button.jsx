@@ -1,7 +1,8 @@
 import styleButton from './Button.module.css'
-export const Button = ({onchange,text}) => {
+import cn from 'classnames'
+export const Button = ({onchange,classname,text}) => {
     return (
-        <button onClick={onchange} className={styleButton.btn}>
+        <button onClick={onchange} className={cn(styleButton.btn,classname)}>
             {text}
         </button>
     )
