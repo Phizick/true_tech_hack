@@ -1,8 +1,10 @@
+import cv2
+import numpy as np
 import multiprocessing
 import time
 from concurrent.futures import ThreadPoolExecutor
 
-from flask import Flask, send_from_directory, request, Response
+from flask import Flask, request, Response
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -11,65 +13,62 @@ CORS(app)
 executor = ThreadPoolExecutor(multiprocessing.cpu_count() * 3)
 videos_under_processing = {}
 
+
 def get_time_code(frame):
     img_gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     _, thresh = cv2.threshold(img_gray, 110, 255, cv2.THRESH_BINARY)
     set_thresh = np.unique(thresh, return_counts=True)
     test_white = np.median(np.median(frame, axis=0), axis=0)
-    if len(set_thresh[0])<=1 and set_thresh[0]!=0:
-        return 1             
-    elif test_white[0]>=190 and test_white[1]>=190 and test_white[2]>=155:
-        return 1 
-    elif test_white[0]>=155 and test_white[1]>=190 and test_white[2]>=190:
-        return 1 
-    elif test_white[0]>=190 and test_white[1]>=155 and test_white[2]>=190:
-        return 1 
-    elif test_white[0]>=213:
-        return 1 
-    elif test_white[1]>=213:
-        return 1 
-    elif test_white[2]>=213:
-        return 1     
+    if len(set_thresh[0]) <= 1 and set_thresh[0] != 0:
+        return 1
+    elif test_white[0] >= 190 and test_white[1] >= 190 and test_white[2] >= 155:
+        return 1
+    elif test_white[0] >= 155 and test_white[1] >= 190 and test_white[2] >= 190:
+        return 1
+    elif test_white[0] >= 190 and test_white[1] >= 155 and test_white[2] >= 190:
+        return 1
+    elif test_white[0] >= 213:
+        return 1
+    elif test_white[1] >= 213:
+        return 1
+    elif test_white[2] >= 213:
+        return 1
     return 0
 
-def processing_frame(vcap, fps, frames_duration, start):
-    result_ = []
-    i=0
+
+def process_video(link, vcap, fps):
+    frames_count = 0
     while True:
         ret, frame = vcap.read()
         if not ret:
             break
+
         if get_time_code(frame):
-            result_.append([int(frames_duration[i]*1000), int(frames_duration[i+1]*1000)])
-        if i>=start+120:
-            print('happened')
-            start = i
-            yield result_
-            result_ = []
-        i+=1
+            bad_frame_start = frames_count / fps
+            while get_time_code(frame):
+                ret, frame = vcap.read()
+                frames_count += 1
+                if not ret:
+                    break
+
+            videos_under_processing[link]['bad_intervals'].append([bad_frame_start, frames_count/fps])
+            if not ret:
+                break
+
+        if frames_count / fps >= 5 and not videos_under_processing[link]['init_completed']:
+            print('5 sec served')
+            videos_under_processing[link]['init_completed'] = True
+
+        frames_count += 1
 
 
 def markup_video(link: str):
     vcap = cv2.VideoCapture(link)
     fps = vcap.get(cv2.CAP_PROP_FPS)
-    frames_duration = get_saving_frames_durations(vcap, 24)
-    result = []
-    ret = True
-    i=0
-    start = 0
     print('Starting processing')
-    for bad_intervals in processing_frame(vcap, fps, frames_duration, start):
-        videos_under_processing[link]['bad_intervals'] = bad_intervals
-        videos_under_processing[link]['init_completed'] = True
-        print('[markup_video] Init completed')
-
-    # time.sleep(5)
-    # videos_under_processing[link]['bad_intervals'] = [[0, 1579], [2434, 3501]]
-    # videos_under_processing[link]['init_completed'] = True
-    print('The below sleep simulates further processing')
-    # time.sleep(5)
+    process_video(link, vcap, fps)
+    print('Processing completed')
     videos_under_processing[link]['processing_completed'] = True
-    print('Processing finished. So now we have full "bad_intervals" for the link')
 
 
 @app.route('/api/v1/markupEpilepsy', methods=['POST'])
