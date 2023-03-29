@@ -6,7 +6,7 @@
  */
 
 import stylesMainPage from "./MainPage.module.css";
-import { Player, ControlBar,BigPlayButton } from "video-react";
+import { Player, ControlBar, BigPlayButton } from "video-react";
 import { Modal } from "../../components/Modal/Modal";
 import { useEffect, useState } from "react";
 export const MainPage = () => {
