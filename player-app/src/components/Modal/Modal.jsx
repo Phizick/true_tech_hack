@@ -22,7 +22,6 @@ import {
   setNotScene,
   setOttenok,
 } from "../../service/slices/maskSlice";
-import { getCodes, getTimesCode } from "../../service/slices/timeCodeSlice";
 export const Modal = ({ active, closeModal }) => {
   const [video, setVideo] = useState("");
   const state = useSelector((state) => state.masks);
@@ -42,7 +41,7 @@ export const Modal = ({ active, closeModal }) => {
         times.map((item) => {
           if (Math.floor(video.currentTime) === item) {
             video.style.filter =
-              "contrast(140%) sepia(60%) saturate(160%) blur(15px)";
+              "contrast(140%) sepia(60%) saturate(160%) blur(30px)";
           }
         });
       }
@@ -52,7 +51,7 @@ export const Modal = ({ active, closeModal }) => {
       if (state?.notScene === "on") {
         times.map((item) => {
           if (Math.floor(video.currentTime) === item) {
-            video.style.filter = ` grayscale(${state?.ottenok}%) brightness(${state?.light}%) contrast(${state?.contrast}%) blur(15px)`;
+            video.style.filter = ` grayscale(${state?.ottenok}%) brightness(${state?.light}%) contrast(${state?.contrast}%) blur(30px)`;
           }
         });
       }
@@ -63,7 +62,7 @@ export const Modal = ({ active, closeModal }) => {
         times.map((item) => {
           if (Math.floor(video.currentTime) === item) {
             video.style.filter =
-              "grayscale(140%)  brightness(110%) contrast(120%) blur(15px)";
+              "grayscale(140%)  brightness(110%) contrast(120%) blur(30px)";
           }
         });
       }
@@ -73,7 +72,7 @@ export const Modal = ({ active, closeModal }) => {
       if (state?.notScene === "on") {
         times.map((item) => {
           if (Math.floor(video.currentTime) === item) {
-            video.style.filter = "hue-rotate(359deg) saturate(150%) blur(15px)";
+            video.style.filter = "hue-rotate(359deg) saturate(150%) blur(30px)";
           }
         });
       }
@@ -84,7 +83,7 @@ export const Modal = ({ active, closeModal }) => {
         times.map((item) => {
           if (Math.floor(video.currentTime) === item) {
             video.style.filter =
-              "hue-rotate(359deg) contrast(150%) brightness(110%) blur(15px)";
+              "hue-rotate(359deg) contrast(150%) brightness(110%) blur(30px)";
           }
         });
       }
