@@ -3,12 +3,11 @@
     height: 100vh;
     display: flex;
     justify-content: center;
-    }
+}
 
 .title {
     color: rgba(255, 255, 255, 1);
     margin: 0 auto;
-
 }
 
 .container {
@@ -29,14 +28,12 @@
     max-width: 80%;
     justify-content: center;
     margin: 0 auto;
-
 }
 
 .frame {
     display: flex;
     flex-direction: row;
     justify-content: center;
-
     max-width: 80%;
     gap: 15px;
 }
@@ -44,5 +41,4 @@
 .text {
     margin: 0;
     width: 20%;
-
 }
