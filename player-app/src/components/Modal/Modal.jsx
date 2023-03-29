@@ -12,7 +12,7 @@
 
 import styleModal from "./Modal.module.css";
 import cn from "classnames";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Button } from "../Button/Button";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -103,15 +103,7 @@ export const Modal = ({ active, closeModal }) => {
       "%, #40494F " +
       inputRef.current.value +
       "%)";
-    if (state?.notScene === "on") {
-      times.map((item) => {
-        if (Math.floor(video.currentTime) === item) {
-          video.style.filter = ` grayscale(${otRef.current.value}%) brightness(${inputRef.current.value}%) contrast(${nasRef.current.value}%) blur(15px)`;
-        }
-      });
-    } else {
-      video.style.filter = ` grayscale(${otRef.current.value}%) brightness(${inputRef.current.value}%) contrast(${nasRef.current.value}%)`;
-    }
+          video.style.filter = `grayscale(${otRef.current.value}%) brightness(${inputRef.current.value}%) contrast(${nasRef.current.value}%)`;
   };
   const nasChange = () => {
     nasRef.current.style.background =
@@ -120,15 +112,7 @@ export const Modal = ({ active, closeModal }) => {
       "%, #40494F " +
       nasRef.current.value +
       "%)";
-    if (state?.notScene === "on") {
-      times.map((item) => {
-        if (Math.floor(video.currentTime) === item) {
-          video.style.filter = ` grayscale(${otRef.current.value}%) brightness(${inputRef.current.value}%) contrast(${nasRef.current.value}%) blur(15px)`;
-        }
-      });
-    } else {
       video.style.filter = ` grayscale(${otRef.current.value}%) brightness(${inputRef.current.value}%) contrast(${nasRef.current.value}%)`;
-    }
   };
   const otChange = () => {
     otRef.current.style.background =
@@ -137,19 +121,10 @@ export const Modal = ({ active, closeModal }) => {
       "%, #40494F " +
       otRef.current.value +
       "%)";
-    if (state?.notScene === "on") {
-      times.map((item) => {
-        if (Math.floor(video.currentTime) === item) {
-          video.style.filter = ` grayscale(${otRef.current.value}%) brightness(${inputRef.current.value}%) contrast(${nasRef.current.value}%) blur(15px)`;
-        }
-      });
-    } else {
       video.style.filter = ` grayscale(${otRef.current.value}%) brightness(${inputRef.current.value}%) contrast(${nasRef.current.value}%)`;
-    }
   };
 
   const monochrom = () => {
-    video.style.filter = "grayscale(140%) contrast(120%)";
     if (state?.notScene === "on") {
       times.map((item) => {
         if (Math.floor(video.currentTime) === item) {
@@ -158,6 +133,7 @@ export const Modal = ({ active, closeModal }) => {
       });
     } else {
       video.style.filter = "grayscale(140%) contrast(120%)";
+      inputRef.current.style = 'opacity(0.2)'
     }
   };
 
@@ -202,11 +178,11 @@ export const Modal = ({ active, closeModal }) => {
     if (state?.notScene === "on") {
       times.map((item) => {
         if (Math.floor(video.currentTime) === item) {
-          video.style.filter = `brightness(${inputRef.current.value}%) blur(15px)`;
+          video.style.filter = `grayscale(${otRef.current.value}%) brightness(${inputRef.current.value}%) contrast(${nasRef.current.value}%)blur(15px)`;
         }
       });
     } else {
-      video.style.filter = `brightness(${inputRef.current.value}%)`;
+      video.style.filter = `grayscale(${otRef.current.value}%) brightness(${inputRef.current.value}%) contrast(${nasRef.current.value}%)`;
     }
   };
 
