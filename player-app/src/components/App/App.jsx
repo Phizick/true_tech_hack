@@ -11,7 +11,14 @@ import { MainPage } from "../../pages/MainPage/MainPage";
 import {ProtectedRoute} from "../ProtectedRoute/ProtectedRoute";
 import {LoginPage} from "../../pages/LoginPage/LoginPage";
 import {PersonalPage} from "../../pages/Personal/PersonalPage";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getTimesCode } from "../../service/slices/timeCodeSlice";
 export const App = () => {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getTimesCode())
+  })
   return (
     <div className="App">
       <Switch>

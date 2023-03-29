@@ -19,9 +19,11 @@ import {
   setNotScene,
   setOttenok,
 } from "../../service/slices/maskSlice";
+import { getCodes, getTimesCode } from "../../service/slices/timeCodeSlice";
 export const Modal = ({ active, closeModal }) => {
   const [video, setVideo] = useState("");
   const state = useSelector((state) => state.masks);
+  const times = useSelector((state) => state.times.times)
   const maskElement = document.querySelector("[name=radio-group]:checked");
   useEffect(() => {
     const video = document.querySelector(".video-react-video");
@@ -31,11 +33,25 @@ export const Modal = ({ active, closeModal }) => {
     dispatch(setOttenok(window.localStorage.getItem("ottenok")));
     dispatch(setMask(window.localStorage.getItem("mask")));
     dispatch(setNotScene(window.localStorage.getItem("not-scene")));
+   const getCodes = () => {
+    times.map((item) => {
+      if(Math.floor(video.currentTime) === item) {
+        video.style.filter = 'blur(1000px)';
+      } 
+    })
+   }  
+   video.style.filter = 'blur(1000px)';
+   getCodes()
     if (state?.mask === "tree") {
       video.style.filter = "contrast(140%) sepia(60%) saturate(160%)";
     }
     if (state?.mask === "normal") {
       video.style.filter = ` grayscale(${state?.ottenok}%) brightness(${state?.light}%) contrast(${state?.contrast}%)`;
+      times.map((item) => {
+        if(Math.floor(video.currentTime) === item) {
+          video.style.filter = 'blur(1000px)';
+        } 
+      })
     }
     if (state?.mask === "monochrom") {
       video.style.filter = "grayscale(140%)  brightness(110%) contrast(120%)";
@@ -46,7 +62,7 @@ export const Modal = ({ active, closeModal }) => {
     if (state?.mask === "detree") {
       video.style.filter = "hue-rotate(359deg) contrast(150%) brightness(110%)";
     }
-  }, [state, video]);
+  }, [state, video,times,video.currentTime,getCodes]);
 
   const dispatch = useDispatch();
   const inputRef = useRef(null);
