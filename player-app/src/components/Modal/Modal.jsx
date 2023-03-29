@@ -25,6 +25,7 @@ export const Modal = ({ active, closeModal }) => {
   const state = useSelector((state) => state.masks);
   const times = useSelector((state) => state.times.times)
   const maskElement = document.querySelector("[name=radio-group]:checked");
+  console.dir(document.querySelector(".video-react-video"))
   useEffect(() => {
     const video = document.querySelector(".video-react-video");
     setVideo(video);
@@ -68,6 +69,7 @@ export const Modal = ({ active, closeModal }) => {
   const inputRef = useRef(null);
   const nasRef = useRef(null);
   const otRef = useRef(null);
+
 
   const lightChange = () => {
     inputRef.current.style.background =
