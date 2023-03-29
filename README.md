@@ -19,7 +19,6 @@
 ### `npm start`
 
 И становится доступным по ссылке: [http://localhost:3000](http://localhost:3000)
---
 
 
 Для ознакомления с полной документацией, [воспользуйтесь ссылкой](https://disk.yandex.ru/i/iIyNUCXpJzuIxA)
