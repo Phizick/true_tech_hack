@@ -3,6 +3,9 @@
  * Modal - модальное окно при клике на настройки
  * Здесь происходит магия
  * Наложение масок на фильм
+ * Включение/Выключение неприемлемых сцен
+ * Получение таймкодов для сравнение с текущим временем
+ * Блюр экрана в случае неприемлемой сцены
  * @returns
  * возвращает страницы модальное окно
  */
@@ -23,9 +26,8 @@ import { getCodes, getTimesCode } from "../../service/slices/timeCodeSlice";
 export const Modal = ({ active, closeModal }) => {
   const [video, setVideo] = useState("");
   const state = useSelector((state) => state.masks);
-  const times = useSelector((state) => state.times.times)
+  const times = useSelector((state) => state.times.times);
   const maskElement = document.querySelector("[name=radio-group]:checked");
-  console.dir(document.querySelector(".video-react-video"))
   useEffect(() => {
     const video = document.querySelector(".video-react-video");
     setVideo(video);
@@ -34,42 +36,65 @@ export const Modal = ({ active, closeModal }) => {
     dispatch(setOttenok(window.localStorage.getItem("ottenok")));
     dispatch(setMask(window.localStorage.getItem("mask")));
     dispatch(setNotScene(window.localStorage.getItem("not-scene")));
-   const getCodes = () => {
-    times.map((item) => {
-      if(Math.floor(video.currentTime) === item) {
-        video.style.filter = 'blur(1000px)';
-      } 
-    })
-   }  
-   video.style.filter = 'blur(1000px)';
-   getCodes()
     if (state?.mask === "tree") {
       video.style.filter = "contrast(140%) sepia(60%) saturate(160%)";
+      if (state?.notScene === "on") {
+        times.map((item) => {
+          if (Math.floor(video.currentTime) === item) {
+            video.style.filter =
+              "contrast(140%) sepia(60%) saturate(160%) blur(15px)";
+          }
+        });
+      }
     }
     if (state?.mask === "normal") {
-      video.style.filter = ` grayscale(${state?.ottenok}%) brightness(${state?.light}%) contrast(${state?.contrast}%)`;
-      times.map((item) => {
-        if(Math.floor(video.currentTime) === item) {
-          video.style.filter = 'blur(1000px)';
-        } 
-      })
+      video.style.filter = `grayscale(${state?.ottenok}%) brightness(${state?.light}%) contrast(${state?.contrast}%)`;
+      if (state?.notScene === "on") {
+        times.map((item) => {
+          if (Math.floor(video.currentTime) === item) {
+            video.style.filter = ` grayscale(${state?.ottenok}%) brightness(${state?.light}%) contrast(${state?.contrast}%) blur(15px)`;
+          }
+        });
+      }
     }
     if (state?.mask === "monochrom") {
       video.style.filter = "grayscale(140%)  brightness(110%) contrast(120%)";
+      if (state?.notScene === "on") {
+        times.map((item) => {
+          if (Math.floor(video.currentTime) === item) {
+            video.style.filter =
+              "grayscale(140%)  brightness(110%) contrast(120%) blur(15px)";
+          }
+        });
+      }
     }
     if (state?.mask === "proto") {
       video.style.filter = "hue-rotate(359deg) saturate(150%)";
+      if (state?.notScene === "on") {
+        times.map((item) => {
+          if (Math.floor(video.currentTime) === item) {
+            video.style.filter = "hue-rotate(359deg) saturate(150%) blur(15px)";
+          }
+        });
+      }
     }
     if (state?.mask === "detree") {
       video.style.filter = "hue-rotate(359deg) contrast(150%) brightness(110%)";
+      if (state?.notScene === "on") {
+        times.map((item) => {
+          if (Math.floor(video.currentTime) === item) {
+            video.style.filter =
+              "hue-rotate(359deg) contrast(150%) brightness(110%) blur(15px)";
+          }
+        });
+      }
     }
-  }, [state, video,times,video.currentTime,getCodes]);
+  }, [state, video, times, video.currentTime]);
 
   const dispatch = useDispatch();
   const inputRef = useRef(null);
   const nasRef = useRef(null);
   const otRef = useRef(null);
-
 
   const lightChange = () => {
     inputRef.current.style.background =
@@ -310,6 +335,7 @@ export const Modal = ({ active, closeModal }) => {
                       className={styleModal.checkbox_custom}
                       name="not-scene"
                       type="checkbox"
+                      defaultChecked={state?.notScene === "on" ? true : false}
                     />
                     <label
                       htmlFor="not-scene"

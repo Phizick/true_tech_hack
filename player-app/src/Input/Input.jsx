@@ -7,11 +7,11 @@
  * возвращает input с дефолтными стилями
  */
 
-import styleInput from './Input.module.css'
-export const Input = ({...rest}) => {
-    return (
-        <>
-        <input className={styleInput.input} {...rest} />
-        </>
-    )
-}
+import styleInput from "./Input.module.css";
+export const Input = ({ ...rest }) => {
+  return (
+    <>
+      <input className={styleInput.input} {...rest} />
+    </>
+  );
+};
